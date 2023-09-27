@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JAVASCRIPT-5</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <center>
+        <form style="max-width: 50%;" onsubmit="return validate()" action="https://www.ethnus.com">
+            <table>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input id="i1" type="text"></td>
+                    <td id="invalid1"></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input id="i2" type="email"></td>
+                    <td id="invalid2"></td>
+                </tr>
+                <tr>
+                    <td><label>Website</label></td>
+                    <td><input id="i3" type="text"></td>
+                    <td id="invalid3"></td>
+                </tr>
+                <tr>
+                    <td><label>Message</label></td>
+                    <td><textarea id="i4" rows="5" cols="23" name="text"></textarea></td>
+                    <td id="invalid4"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center"><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+    <script>
+        function validate() {
+            var un = document.getElementById("i1").value;
+            var em = document.getElementById("i2").value;
+            var web = document.getElementById("i3").value;
+            var msg = document.getElementById("i4").value;
+            var isValid = true;
+
+            if (un.length == 0) {
+                document.getElementById("i1").style.borderColor = 'red';
+                document.getElementById("invalid1").innerHTML = `<p class="alert alert-danger">This field is required</p>`;
+                isValid = false;
+            } else {
+                document.getElementById("i1").style.borderColor = '';
+                document.getElementById("invalid1").innerHTML = '';
+            }
+
+            if (em.length == 0) {
+                document.getElementById("i2").style.borderColor = 'red';
+                document.getElementById("invalid2").innerHTML = `<p class="alert alert-danger">A valid email is required</p>`;
+                isValid = false;
+            } else {
+                document.getElementById("i2").style.borderColor = '';
+                document.getElementById("invalid2").innerHTML = '';
+            }
+
+            if (web.length == 0) {
+                document.getElementById("i3").style.borderColor = 'red';
+                document.getElementById("invalid3").innerHTML = `<p class="alert alert-danger">A valid URL is required</p>`;
+                isValid = false;
+            } else {
+                document.getElementById("i3").style.borderColor = '';
+                document.getElementById("invalid3").innerHTML = '';
+            }
+
+            if (msg.length == 0) {
+                document.getElementById("i4").style.borderColor = 'red';
+                document.getElementById("invalid4").innerHTML = `<p class="alert alert-danger">This field is required</p>`;
+                isValid = false;
+            } else {
+                document.getElementById("i4").style.borderColor = '';
+                document.getElementById("invalid4").innerHTML = '';
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
